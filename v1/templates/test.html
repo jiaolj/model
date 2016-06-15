@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>音乐系统</title>
+<link href="/css/jfa.css" rel="stylesheet" />
+<link href="/css/base.css" rel="stylesheet" />
+<link href="/css/font-awesome.min.css" rel="stylesheet" />
+<link href="/css/index.css" rel="stylesheet" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<script src="/js/dist/echarts-all.js"></script>
+<!--[if lte IE 7]>
+<link href="/css/ie/ie7.css" rel="stylesheet" />
+<![endif]-->
+<!--[if lt IE 11]>
+<script src="/js/ie/PIE.js" ></script>
+<script src="/js/ie/html5shiv.min.js" ></script>
+<script src="/js/ie/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<header>
+	<a href="/" class="logo">推荐</a>
+	<nav class="menu" jui-click="active" jui-tar="a" jui-callback="menu1">
+		<a t="music">歌曲</a>
+		<a t="singer">歌手</a>
+	</nav>
+	<nav class="user">
+		<span></span> <a class="login">登陆</a> <a class="reg">注册</a>
+	</nav>
+</header>
+<section id="content">
+	<div class="leftbox">
+		<nav class="menus"></nav>
+		<div class="cntbox" s="0">
+			<div class="types"></div>
+			<div class="sdetail">
+				<a class="close">×</a>
+				<dl>
+					<dt><b><span class="name"></span></b></dt>
+					<dt><b>性别</b>：<span class="sex"></span></dt>
+					<dt><b>地区</b>：<span class="nationality"></span></dt>
+					<dt><b>风格</b>：<span class="style"></span></dt>
+					<dt><b>热门专辑</b>：<span class="album"></span></dt>
+					<dt><b>热门歌曲</b>：<span class="song"></span></dt>
+				</dl>
+				<div class="chart" id="schart"></div>
+			</div>
+			<div class="mdetail">
+				<a class="close">×</a>
+				<dl>
+					<dt><b>歌名</b>：<span class="name"></span></dt>
+					<dt><b>演唱者</b>：<span class="singer"></span></dt>
+					<dt><b>专辑</b>：<span class="album"></span></dt>
+					<dt><b>语言</b>：<span class="language"></span></dt>
+					<dt><b>风格</b>：<span class="style"></span></dt>
+					<dt><b>标签</b>：<span class="tag"></span></dt>
+				</dl>
+				<div class="chart" id="mchart"></div>
+			</div>
+			<div class="ndetail">
+				<a class="close">×</a>
+				<h2></h2>
+				<div class="date"></div>
+				<div class="abstr"></div>
+			</div>
+			<table>
+				<thead id="thead"></thead>
+				<tbody id="tbody"></tbody>
+				</table>
+			<div class="pagelist"></div>
+		</div>
+	</div>
+	<div class="rightbox">
+		<div class="search">
+			<img src="img/search.png"/><input type="text" placeholder="请输入歌手、歌名、专辑等关键字"/>
+		</div>
+		<div class="box">
+			<div class="title">新闻动态</div>
+			<dl class="news" id="news"></dl>
+		</div>
+		<div class="pages">
+			<img d="-1" src="img/pg-up.png"/><img d="1" src="img/pg-down.png"/> 第 <span>1</span> 页
+		</div>
+	</div>
+	<br class="cb"/>
+</section>
+</body>
+<script src="js/require.js" defer async="true" data-main="js/index"></script>
+</html>
