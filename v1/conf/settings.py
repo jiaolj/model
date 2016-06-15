@@ -13,6 +13,7 @@ INSTALLED_APPS = (
     'customTags',
     'corsheaders',
     'models',
+    'default',
     'user',
     'tools',
 )
@@ -28,7 +29,11 @@ MIDDLEWARE_CLASSES = (
 )
 #会话设置
 #SESSION_ENGINE = 'django.contrib.sessions.backends.db'
-#SESSION_COOKIE_AGE=3600*2
+SESSION_COOKIE_AGE=3600*2
+#mysql设置
+mysql_ip = '192.168.1.253'
+mysql_uname = 'liangzhi'
+mysql_passwd = '123456'
 #跨域设置
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
@@ -43,16 +48,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
 )
-ip = 'jiaolj.com'
-mysql_uname = 'jiaolj'
-mysql_passwd = '10534jun'
 DATABASES = {
    'default': {
          'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'music',
+         'NAME': 'model',
          'USER': mysql_uname,
          'PASSWORD': mysql_passwd,
-         'HOST': ip,
+         'HOST': mysql_ip,
          'charset': 'utf8',
    }
 }

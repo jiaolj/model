@@ -1,5 +1,9 @@
 #-*- coding:utf-8 -*-
-import functools
+from django.http import HttpResponseRedirect 
+import functools,logging
+from tools.func import to_json,getStrTime
+
+logger = logging.getLogger("test")
 '''
 process_request  接受request之后确定所执行的view之前  
 process_view  确定了所要执行的view之后 view真正执行之前
@@ -13,18 +17,21 @@ settings里面安装中间件MIDDLEWARE_CLASSES=()
 而其余三种，都可能会因为其他的直接retuen response或者不发生异常而不被执行到。
 '''
 
-from django.http import HttpResponseRedirect 
-#from django.contrib.auth import SESSION_KEY 
+needLogin = ['/json/']
+#from django.contrib.auth import SESSION_KEY
 #from urllib import quote
 class QtsAuthenticationMiddleware(object): 
     def process_request(self,request):
-        '''
-        p=request.path
-        return HttpResponseRedirect('/')
-        if 'useradmin' not in p and 'static' not in p:
-            if request.session.get('user_token'):pass
-            else:return HttpResponseRedirect("/useradmin/")
-        '''
+        back = {'state':'error','msg':'need login'}
+        p = request.path
+        if 'favicon.ico' not in p:
+            #logger.info('url: '+p+' '+getStrTime(1))
+            for n in needLogin:
+                if n in p:
+                    if request.session.get('user_token'):
+                        pass
+                    else:
+                        return to_json(back)
 
 def logindirector(text):
     #带参数的验证

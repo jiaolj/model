@@ -3,11 +3,15 @@ from django.shortcuts import render_to_response
 from django.core.serializers.json import DjangoJSONEncoder
 from django.template import RequestContext
 from django.http import HttpResponse
-import re,json
+import re,json,time
 def to_tmp(tmp,req,args={}):
     return render_to_response(tmp+'.html',args,context_instance=RequestContext(req))
 def to_json(data):
     return HttpResponse(json.dumps(data, cls=DjangoJSONEncoder), content_type='application/json')
+def getStrTime(arg):
+    format = '%Y-%m-%d'
+    if arg:format += ' %H:%M:%S'
+    return time.strftime(format,time.localtime(time.time()))
 
 def getArray(r,l):
     '''
