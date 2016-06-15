@@ -45,6 +45,10 @@ DEFAULT_CHARSET = 'UTF-8'
 WSGI_APPLICATION = 'conf.wsgi.application'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #STATIC_ROOT = ''
+#全局模板变量
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'customTags.processor.model',
+)
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
 )

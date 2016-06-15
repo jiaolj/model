@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#自定义标签
 from django import template
 import time,re
 register = template.Library()
@@ -10,10 +11,6 @@ def cut(value, arg):
 @register.filter(name='cutr')
 def cutr(value, arg):
     return re.sub(arg,'',value)
-
-@register.filter
-def rimg(value):
-    return value.replace('/static/img/upload/','/img/400X400/')
 
 @register.filter
 def lower(value):
