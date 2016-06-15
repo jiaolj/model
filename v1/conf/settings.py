@@ -5,15 +5,16 @@ SECRET_KEY = '#)1_b=*kspc$y!freef-8dbc(e!dl_dpi06kx^3f-7gvc(oms('
 DEBUG = True
 TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
+APP_NAME = 'nb'
 INSTALLED_APPS = (
     #'django.contrib.contenttypes',
     'django.contrib.sessions', #会话设置
     #'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.'+APP_NAME,
     'customTags',
     'corsheaders',
     'models',
-    'default',
     'user',
     'tools',
 )
@@ -113,10 +114,10 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter': 'simple'
         },
-        'test_file': {
+        'app_file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': 'logs/test.log',
+            'filename': 'logs/'+APP_NAME+'.log',
             'formatter': 'verbose'
         },
     },
@@ -126,8 +127,8 @@ LOGGING = {
             'propagate': True,
             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
         },
-        'test': {
-            'handlers': ['test_file', 'console'],
+        'app': {
+            'handlers': ['app_file', 'console'],
             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
         },
     }

@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 import functools,logging
 from tools.func import to_json,getStrTime
 
-logger = logging.getLogger("test")
+logger = logging.getLogger('app')
 '''
 process_request  接受request之后确定所执行的view之前  
 process_view  确定了所要执行的view之后 view真正执行之前

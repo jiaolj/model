@@ -3,7 +3,7 @@ from tools.func import to_json,getStrTime
 from models.user import User
 import logging
 
-logger = logging.getLogger("test")
+logger = logging.getLogger('app')
 def loggerInfo(msg):
     logger.info(msg+' '+getStrTime(1))
 
