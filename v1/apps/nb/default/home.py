@@ -10,4 +10,5 @@ logger = logging.getLogger('app')
 
 def home(req):
     logger.info('首页 '+getStrTime(1))
+    seoTitle = '行业资讯分析平台'
     return render_to_response('home.html',locals(),context_instance=RequestContext(req))

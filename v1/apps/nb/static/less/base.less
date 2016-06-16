@@ -1,8 +1,9 @@
 @import 'model.less';
 @color:#8D48AB;
 @headh:60px;
+@footh:50px;
 body {
-	.fs(14px);
+	.fs(14px);.bg(#F9F9F9);
 }
 
 header {
@@ -34,11 +35,11 @@ header {
 }
 
 footer {
-	.psa;.b;.bg(#000);.h(40px);.lh(40px);.w;
+	.psa;.b;.bg(#737980);.h(@footh);.lh(@footh);.w;
 	p {
 		.c(#fff);.tct;
 		a {
-			.c(#888);
+			.c(#ccc);
 		}
 	}
 }
@@ -46,7 +47,7 @@ footer {
 	.mgt(9px);.trt;
 }
 section {
-	.psa;.t(52px);.b(20px);.w;
+	.psa;.t(@headh + 9px);.b(@footh + 9px);.w;
 	@mainh:460px;
 	img.bg{
 		.w;.h;.psa;.l;.zi(-1);

@@ -1,0 +1,32 @@
+{% load staticfiles %}
+{% load mytags  %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>{{seoTitle}}</title>
+<link href="{% static 'css/jfa.css' %}" rel="stylesheet" />
+<link href="{% static 'css/base.css' %}" rel="stylesheet" />
+<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+<link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
+<!--<script src="{% static 'js/dist/echarts-all.js' %}"></script>-->
+<!--[if lte IE 7]>
+<link href="{% static 'css/ie/ie7.css' %}" rel="stylesheet" />
+<![endif]-->
+{%block css%}{%endblock%}
+<!--[if lt IE 11]>
+<script src="{% static 'js/ie/PIE.js' %}" ></script>
+<script src="{% static 'js/ie/html5shiv.min.js' %}" ></script>
+<script src="{% static 'js/ie/respond.min.js' %}"></script>
+<![endif]-->
+</head>
+<body>
+{%include 'head.html'%}
+<section id="content">
+{%block content%}{%endblock%}
+</section>
+{%include 'foot.html'%}
+{%block js%}{%endblock%}
+</body>
+</html>

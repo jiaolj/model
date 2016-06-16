@@ -52,9 +52,6 @@ a {
   color: #4a62af;
   cursor: pointer;
 }
-a:hover {
-  color: #d50b0f;
-}
 img {
   vertical-align: middle;
 }
