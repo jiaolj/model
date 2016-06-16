@@ -6,13 +6,16 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 APP_NAME = 'nb'
+#mysql设置
+mysql_ip = '192.168.1.253'
+mysql_uname = 'liangzhi'
+mysql_passwd = '123456'
 INSTALLED_APPS = (
     #'django.contrib.contenttypes',
     'django.contrib.sessions', #会话设置
     #'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.'+APP_NAME,
-    'customTags',
     'corsheaders',
     'models',
     'user',
@@ -31,10 +34,6 @@ MIDDLEWARE_CLASSES = (
 #会话设置
 #SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE=3600*2
-#mysql设置
-mysql_ip = '192.168.1.253'
-mysql_uname = 'liangzhi'
-mysql_passwd = '123456'
 #跨域设置
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
@@ -45,13 +44,12 @@ LANGUAGE_CODE = 'zh-cn'
 DEFAULT_CHARSET = 'UTF-8'
 WSGI_APPLICATION = 'conf.wsgi.application'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#STATIC_ROOT = ''
 #全局模板变量
 TEMPLATE_CONTEXT_PROCESSORS = (
-    'customTags.processor.model',
+    'apps.'+APP_NAME+'.processor.model',
 )
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
+    os.path.join(BASE_DIR, 'templates'),
 )
 DATABASES = {
    'default': {
@@ -70,8 +68,10 @@ USE_L10N = True
 USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static').replace('\\', '/'),
+    'apps/'+APP_NAME+'/static',
+    STATIC_ROOT
 )
+STATIC_ROOT = ''
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
