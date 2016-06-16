@@ -74,32 +74,13 @@ section img.bg {
   left: 0;
   z-index: -1;
 }
-.home .logo {
-  text-align: center;
+.analyze .leftbox {
+  float: left;
+  width: 68%;
+  padding: 1%;
 }
-.home dl.search {
-  width: 350px;
-  margin: 9px auto;
-}
-.home dl.search dt {
-  overflow: hidden;
-}
-.home dl.search dt input {
-  width: 100%;
-}
-.home dl.search .boxs {
-  width: 300px;
-}
-.home dl.search .boxs input {
-  line-height: 28px;
-  height: 28px;
-}
-.home dl.search .boxb {
-  width: 50px;
-}
-.home dl.search .boxb input {
-  background: #8d48ab;
-  color: #ffffff;
-  line-height: 30px;
-  height: 30px;
+.analyze .rightbox {
+  float: right;
+  width: 28%;
+  padding: 1%;
 }

@@ -74,13 +74,3 @@ section img.bg {
   left: 0;
   z-index: -1;
 }
-section .leftbox {
-  float: left;
-  width: 68%;
-  padding: 1%;
-}
-section .rightbox {
-  float: right;
-  width: 28%;
-  padding: 1%;
-}

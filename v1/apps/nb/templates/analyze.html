@@ -1,10 +1,15 @@
 {%extends 'base.html'%}
 {% load staticfiles %}
 {% load mytags  %}
-{%block css%}<link href="{% static 'css/home.css' %}" rel="stylesheet" />{%endblock%}
+{%block css%}<link href="{% static 'css/analyze.css' %}" rel="stylesheet" />{%endblock%}
 {%block content%}
 <div class="analyze">
-	分析
+	<div class="leftbox">
+		1
+	</div>
+	<div class="rightbox">
+		2
+	</div>
 </div>
 {%endblock%}
-{%block js%}<script src="{% static 'js/require.js' %}" defer async="true" data-main="{% static 'js/home' %}"></script>{%endblock%}
+{%block js%}<script src="{% static 'js/require.js' %}" defer async="true" data-main="{% static 'js/analyze' %}"></script>{%endblock%}

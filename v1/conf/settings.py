@@ -18,7 +18,6 @@ INSTALLED_APPS = (
     'apps.'+APP_NAME,
     'corsheaders',
     'common',
-    'user',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware', #会话设置
@@ -28,7 +27,7 @@ MIDDLEWARE_CLASSES = (
     #'django.contrib.auth.middleware.AuthenticationMiddleware',
     #'django.contrib.messages.middleware.MessageMiddleware',
     #'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'user.middleware.QtsAuthenticationMiddleware',
+    'common.user.middleware.QtsAuthenticationMiddleware',
 )
 #会话设置
 #SESSION_ENGINE = 'django.contrib.sessions.backends.db'
