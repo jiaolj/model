@@ -5,6 +5,9 @@ html {
 .cb {
   clear: both;
 }
+.flt {
+  float: left;
+}
 .frt {
   float: right;
 }
@@ -55,9 +58,6 @@ a {
 img {
   vertical-align: middle;
 }
-dl.sflt dt.flt {
-  float: left;
-}
 input,
 textarea,
 select,
@@ -68,6 +68,9 @@ iframe,
 input,
 textarea {
   border: none;
+}
+input[type="button"] {
+  cursor: pointer;
 }
 table {
   border: 0;
@@ -82,7 +85,7 @@ table th {
 table td {
   text-align: center;
 }
-.loading {
+.cover {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -91,6 +94,14 @@ table td {
   position: absolute;
   right: 1px;
   top: 1px;
+}
+dl.pflt dt {
+  float: left;
+}
+dl.pflt:after {
+  content: '';
+  clear: both;
+  display: block;
 }
 *[jui-animate="hover1"] b {
   position: absolute;

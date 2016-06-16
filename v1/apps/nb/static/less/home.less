@@ -1,22 +1,30 @@
 @import 'model.less';
+@import 'base.less';
 
-.index {
-	img.index {
-		.psa;
-		&.index-1 {
-			.t(1%);.l(40%);.h(17%);
+.home {
+	.logo {
+		.tct;
+	}
+	dl.search {
+		@sh:30px;
+		.w(350px);.mg(9px auto);
+		dt {
+			.ofh;
+			input {
+				.w;
+			}
 		}
-		&.index-2 {
-			.t(5%);.l(2%);.w(16%);
+		.boxs {
+			.w(300px);
+			input {
+				.lh(@sh - 2px);.h(@sh - 2px);
+			}
 		}
-		&.index-3 {
-			.b(8%);.r(2%);.w(16%);
-		}
-		&.index-4 {
-			.b(8%);.l(2%);.h(10%);
-		}
-		&.index-5 {
-			.b(8%);.l(46%);.h(10%);
+		.boxb {
+			.w(50px);
+			input {
+				.bg(@color);.c(#fff);.lh(@sh);.h(@sh);
+			}
 		}
 	}
 }

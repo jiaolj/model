@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 from django.http import HttpResponseRedirect 
 import functools,logging
-from tools.func import to_json,getStrTime
+from common.tools.func import to_json,getStrTime
 
 logger = logging.getLogger('app')
 '''

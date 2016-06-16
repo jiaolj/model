@@ -1,7 +1,7 @@
 <header>
 	<a href="/" class="logo">行业资讯分析平台</a>
 	<nav class="menu" jui-click="active" jui-tar="a" jui-callback="menu1">
-		{%for m in menuList%}<a t="{{m.active}}">{{m.name}}</a>{%endfor%}
+		{%for m in menuList%}<a href="{{m.href}}">{{m.name}}</a>{%endfor%}
 	</nav>
 	<nav class="user">
 		<span></span> <a class="login">登陆</a> <a class="reg">注册</a>

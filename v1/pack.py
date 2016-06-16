@@ -18,6 +18,8 @@ def updateSettings():
                 snum +=1
             else:
                 flist[line] = ''
+        if 'DEBUG = True' in fl:
+            flist[line] = flist[line].replace('DEBUG = True','DEBUG = False')
     f=open(fname,'w+')
     f.writelines(flist)
 

@@ -1,20 +1,31 @@
 @import 'model.less';
 html{.h;.fs(100px)}
-.cb{.cb}.frt{.frt}.tct{.tct}.tlt{.tlt}.trt{.trt}
+.cb{.cb}.flt{.flt}.frt{.frt}.tct{.tct}.tlt{.tlt}.trt{.trt}
 body,dl,p,table,h1,h2,h3,h4,h5,h6{margin:0}
 h1,h2,h3,h4,h5,h6{.fs}.hide{.dsn}
 body{.h;.w;.psr;.fs(12px);.ffmy('Microsoft YaHei','Lucida Grande',Arial,sans-serif;)}
 a{.tdn;.c(#4a62af);.csr}
 img {.val}
-dl.sflt dt.flt{.flt}
 input,textarea,select,summary{.otl}
 iframe,input,textarea{.bdn}
+input[type="button"] {
+	.csr;
+}
 table {
 	border:0;margin:0;border-collapse:collapse;border-spacing:0;
 	td,th {padding:0}td{.tct}
 }
-.loading {.psa;.w;.h}
-.close {.psa;.r(1px);.t(1px)}
+.cover {.psa;.w;.h} //覆盖层
+.close {.psa;.r(1px);.t(1px)} //关闭按钮
+dl.pflt {  //浮动并清除
+	dt {
+		.flt;
+	}
+	&:after {
+		content :'';.cb;.dsb;
+	}
+}
+
 //jui-animate
 *[jui-animate="hover1"] {
 	b {

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from tools.func import to_json,getStrTime
-from models.user import User
+from common.tools.func import to_json,getStrTime
+from common.models.user import User
 import logging
 
 logger = logging.getLogger('app')

@@ -31,6 +31,7 @@ define(['jquery','dom'],function($,Dom){
 				}
 				w.str=function(k){return JSON && JSON.stringify(k)}
 				w.json=function(k){return eval('('+k+')')}
+				w.urlencode = encodeURIComponent;
 			},
 			load : function(){
 				var o = arguments[0],
@@ -137,16 +138,25 @@ define(['jquery','dom'],function($,Dom){
 				})
 			},
 			mvvm : function(dom){ //为某个DOM节点绑定事件(MVVM模式)
+				//普通点击
+				dom.find('[jfa-click="click"]').each(function(k,i){
+					var o = $(i),
+						k = o.attr('jfa-callback');
+					o.click(function(){
+						if(k=='sbtn') o.sval = o.parent().parent().find('input[type="text"]').val();
+						k && _obj.conf.callback[k] && _obj.conf.callback[k](o);
+					})
+				})
 				//增加或删除active
-				dom.find('[jui-click="active"]').each(function(k,i){
+				dom.find('[jfa-click="active"]').each(function(k,i){
 					var o = $(i),
 						obj,
-						tar = o.attr('jui-tar'), //点击元素
-						to = o.attr('jui-to'), //直接目标元素
-						son = o.attr('jui-son'), //子类目标元素
-						pr = parseInt(o.attr('jui-prt')) || 0, //父类目标元素
-						r = o.attr('jui-repeat'), //是否唯一
-						k = o.attr('jui-callback') //回调函数
+						tar = o.attr('jfa-tar'), //点击元素
+						to = o.attr('jfa-to'), //直接目标元素
+						son = o.attr('jfa-son'), //子类目标元素
+						pr = parseInt(o.attr('jfa-prt')) || 0, //父类目标元素
+						r = o.attr('jfa-repeat'), //是否唯一
+						k = o.attr('jfa-callback') //回调函数
 					; 
 					if(tar) obj = o.find(tar);
 					else obj = o;

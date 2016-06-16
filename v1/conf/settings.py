@@ -4,7 +4,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '#)1_b=*kspc$y!freef-8dbc(e!dl_dpi06kx^3f-7gvc(oms('
 DEBUG = True
 TEMPLATE_DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*'] #debug=False的时候要设置
 APP_NAME = 'nb'
 #mysql设置
 mysql_ip = '192.168.1.253'
@@ -17,9 +17,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'apps.'+APP_NAME,
     'corsheaders',
-    'models',
+    'common',
     'user',
-    'tools',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware', #会话设置
@@ -39,7 +38,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
     'localhost',
 )
-ROOT_URLCONF = 'conf.urls'
+ROOT_URLCONF = 'apps.'+APP_NAME+'.urls'
 LANGUAGE_CODE = 'zh-cn' 
 DEFAULT_CHARSET = 'UTF-8'
 WSGI_APPLICATION = 'conf.wsgi.application'
