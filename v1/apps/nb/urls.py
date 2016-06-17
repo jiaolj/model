@@ -5,6 +5,10 @@ from conf.urls import urlpatterns
 urlpatterns += patterns('apps.'+APP_NAME+'.home',
     url(r'^$', 'home'),
 )
+urlpatterns += patterns('apps.'+APP_NAME+'.es',
+    url(r'^es/get/$', 'get'),
+    url(r'^es/list/$', 'test'),
+)
 urlpatterns += patterns('',
     url(r'^analyze/', include('apps.'+APP_NAME+'.analyze.urls')),
     url(r'^custom/', include('apps.'+APP_NAME+'.custom.urls')),

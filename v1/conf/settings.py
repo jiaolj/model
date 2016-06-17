@@ -49,16 +49,26 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
-ES = {
+HTTP = {
     'default' : {
-        'HOST': '192.168.1.251'
+        'HOST': 'http://192.168.1.251',
+        'path': '/spider_admin/user/register',
     },
     'test' : {
-        'HOST': 'localhost:808'
+        'HOST': 'localhost:808',
+        'path': '/spider_admin/user/register',
     }
 }
 DATABASES = {
    'default': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'model',
+         'USER': mysql_uname,
+         'PASSWORD': mysql_passwd,
+         'HOST': mysql_ip,
+         'charset': 'utf8',
+   },
+   'test': {
          'ENGINE': 'django.db.backends.mysql',
          'NAME': 'model',
          'USER': mysql_uname,

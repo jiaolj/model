@@ -203,7 +203,7 @@ define(['jquery','dom'],function($,Dom){
 						if(!r) o.find(tar+'.active').removeClass('active');
 						if(prs.hasClass('active')) prs.removeClass('active');
 						else prs.addClass('active');
-						k && _obj.conf.callback[k] && _obj.conf.callback[k](ob);
+						setTimeout(function(){k && _obj.conf.callback[k] && _obj.conf.callback[k](ob)}); //解决js阻塞浏览器
 					})
 				})
 				//切换tab切换div
@@ -221,7 +221,7 @@ define(['jquery','dom'],function($,Dom){
 						ob.addClass('active');
 						$('.'+to+'.active').removeClass('active');
 						$('.'+to+'[ci="'+ci+'"]').addClass('active');
-						k && _obj.conf.callback[k] && _obj.conf.callback[k](ob,ci);
+						setTimeout(function(){k && _obj.conf.callback[k] && _obj.conf.callback[k](ob,ci)}); //解决js阻塞浏览器
 					})
 				})
 			},
