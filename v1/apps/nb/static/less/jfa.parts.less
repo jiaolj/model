@@ -25,3 +25,22 @@
 		}
 	}
 }
+//开关ie9+
+.jfa-switch(@oc:#999,@cc:#ddd) {
+	.psr;.t(6px);.br(12px);.dsib;.w(44px);.h(20px);.csr;.mgl(9px);
+	&:before {
+		content:'';.psa;.dsib;.bol(18px);.t(1px);.bg(#fff);
+	}
+	&[s="1"]{
+		.bg(@oc);
+		&:before {
+			.r(1px);
+		}
+	}
+	&[s="0"]{
+		.bg(@cc);
+		&:before {
+			.l(1px);
+		}
+	}
+}

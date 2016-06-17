@@ -49,6 +49,14 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
+ES = {
+    'default' : {
+        'HOST': '192.168.1.251'
+    },
+    'test' : {
+        'HOST': 'localhost:808'
+    }
+}
 DATABASES = {
    'default': {
          'ENGINE': 'django.db.backends.mysql',

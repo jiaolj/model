@@ -6,6 +6,13 @@ define(['jquery','dom'],function($,Dom){
 				o.html(t);
 				_obj.mvvm(o);
 			},
+			sw : function(o,s){
+				var nw = '0';
+				if(s=='1') nw = '0';
+				else nw = '1';
+				o.attr('s',nw);
+				return nw;
+			},
 			func : function(w){
 				Function.prototype.method = function(name, func) { //js函数扩展通用方法
 				  this.prototype[name] = func;  

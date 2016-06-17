@@ -38,11 +38,6 @@
 .bs-alert() {
 	box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
 }
-.round(@d:50%){
-	border-radius:@d;
-	.psr;.zi;
-	behavior:url(/static/js/pie.htc)
-}
 .gradient(@a,@b){ //渐变
 	background: -webkit-gradient(linear, 0 0, 0 70%, from(@a), to(@b));
     background: -moz-linear-gradient(@a, @b 70%);
@@ -59,9 +54,15 @@
 .bgimg(@f:top,@r:0,@g:0,@b:0,@s:0.5,@t:0.1){ //渐变背景
 	background-image: linear-gradient(to @f, rgba(@r,@g,@b,@s), rgba(@r,@g,@b,@s+@t), rgba(@r,@g,@b,@s+@t*2), rgba(@r,@g,@b,@s+@t*3));
 }
-.trgt(@c:#333,@a:6px,@b:4px){ //三角形（朝上）
+.trgt(@c:#333,@a:6px,@b:4px){ //三角形（朝下）
 	.dsib;
 	border-top: @a solid @c;
+	border-left: @b solid transparent;
+	border-right: @b solid transparent;
+}
+.trgb(@c:#333,@a:6px,@b:4px){ //三角形（朝上）
+	.dsib;
+	border-bottom: @a solid @c;
 	border-left: @b solid transparent;
 	border-right: @b solid transparent;
 }
