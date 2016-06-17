@@ -1,15 +1,17 @@
 require.config({
 	paths: {
-		jquery: '../js/jquery.min',
-		cookie: '../js/jquery.cookie',
-		base: '../js/base',
-		jfa: '../js/jfa',
-		drawe: '../js/drawe',
-		echarts: '../js/echarts.min'
+		dir : '/static/js/',
+		jquery: '/static/js/jquery.min',
+		cookie: '/static/js/jquery.cookie',
+		base: '/static/js/base',
+		jfa: '/static/js/jfa',
+		dom: '/static/js/dom',
+		drawe: '/static/js/drawe',
+		echarts: '/static/js/ec/',
 	}
 })
 
-require(['jquery','base','jfa','drawe','echarts','cookie'], function($,Base,Jfa,Dr,ec) {
+require(['jquery','base','jfa','drawe','echarts','echarts/test','echarts/chart/line','echarts/chart/map','cookie'], function($,Base,Jfa,Dr) {
 	var Start = (function(){
 		var _obj = {};
 		return {
@@ -29,17 +31,17 @@ require(['jquery','base','jfa','drawe','echarts','cookie'], function($,Base,Jfa,
 				Jfa.init({
 					size:(100/1920),
 					callback : {
-						sbtn : function(o){
-							if(o.sval) location.href = '/analyze/?kwd='+urlencode(o.sval);
+						menu1 : function(o){
+							log(o.text());
 						},
 					}
 				});
 				Base.init({
 					login : function(){
-						_obj.getQuery();
+						_obj.getLogin();
 					}
 				});
-				
+				Dr.getLine('lineChart').getMap('mapChart',[{name:'中国',value:100},{name:'美国',value:80}]);
 			}
 		}
 	})();

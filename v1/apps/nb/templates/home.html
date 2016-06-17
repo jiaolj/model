@@ -4,11 +4,8 @@
 {%block css%}<link href="{% static 'css/home.css' %}" rel="stylesheet" />{%endblock%}
 {%block content%}
 <div class="home">
-	<div class="logo">行业资讯，一手掌握</div>
-	<dl class="search pflt">
-		<dt class="boxs"><input type="text" /></dt>
-		<dt class="boxb"><input type="button" jfa-click="click" jfa-callback="sbtn" value="搜索"/></dt>
-	</dl>
+	<div class="logo"><img src="{% static 'img/home_tit.jpg' %}"/></div>
+	{%include 'parts/search.html'%}
 </div>
 {%endblock%}
-{%block js%}<script src="{% static 'js/require.js' %}" defer async="true" data-main="{% static 'js/home' %}"></script>{%endblock%}
+{%block js%}<script defer async="true" src="{% static 'js/home.js' %}"></script>{%endblock%}

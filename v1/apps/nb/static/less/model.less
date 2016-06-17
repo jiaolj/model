@@ -49,11 +49,11 @@
     background: linear-gradient(@a, @b 70%);
     -pie-background: linear-gradient(@a, @b 70%);
 }
-.tbbd(@c:#ccc){ //表格边框
-	.bdl(@c);
+.tbbd(@c:#ccc,@w:1px){ //表格边框
+	.bdl(@c,@w);
 	td,th {
 		border:solid @c;
-		border-width: 1px 1px 1px 0;
+		border-width: @w @w @w 0;
 	}
 }
 .bgimg(@f:top,@r:0,@g:0,@b:0,@s:0.5,@t:0.1){ //渐变背景

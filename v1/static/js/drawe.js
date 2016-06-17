@@ -1,4 +1,4 @@
-define(['echarts'],function(ec){
+define(['echarts','echarts/test'],function(ec,Test){
 	var ECharts = (function(){
 		var _obj = {},
 			//ec =  echarts,
@@ -337,9 +337,9 @@ define(['echarts'],function(ec){
 						tooltip : {
 							trigger: 'item',
 							formatter : function (params) {
-								var value=params.value;
-								var name=params.name;
-								if (value) return name+': '+value;
+								var value = params.value,
+									name = params.name;
+								if (value) return name + ': ' + value;
 								else return name;
 							}
 						},
@@ -379,7 +379,7 @@ define(['echarts'],function(ec){
 									normal: {
 										borderColor:'#fff',
 										borderWidth:'1',
-										color:'rgba(0,0,0,0)'
+										//color:'rgba(0,0,0,0)'
 									},
 									emphasis:{
 										label:{show:true},
@@ -396,10 +396,12 @@ define(['echarts'],function(ec){
 			},
 			getLine : function(id,data,grid){
 				var o = ec.init(document.getElementById(id)),
-					series=data.series,
-						lend=[],
-						cor = this.pubcolor,
-						grid = grid || {x:'5%',y:'11%',x2:'2%',y2:'10%'};
+					data = data || {},
+					series = data.series || [{name:'趋势', type:'line', data:[20, 10, 20, 60, 40, 20, 92]}],
+					lend = [],
+					cor = this.pubcolor,
+					grid = grid || {x:'5%',y:'11%',x2:'2%',y2:'10%'}
+				;
 				for(var s in series) lend.push(series[s].name);
 				var option = {
 						color : _config.color,
@@ -421,7 +423,7 @@ define(['echarts'],function(ec){
 								axisLabel:{
 									//textStyle: {color:'#ccc'},
 								},
-								data : data.tm
+								data : data.tm || ['周一','周二','周三','周四','周五','周六','周日']
 							}
 						],
 						yAxis : [
@@ -452,7 +454,7 @@ define(['echarts'],function(ec){
 							return lst;
 						})()
 					}
-				; 
+				;
 				o.setOption(option);
 				return _obj;
 			},

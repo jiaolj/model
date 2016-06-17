@@ -69,7 +69,7 @@ define(['jquery','dom'],function($,Dom){
 								next = _i.page + 1;
 							if(pre<1) pre = 1;
 							if(next>_i.allp) next = _i.allp;
-							return '<div class="jui-page">'+_dom.replace('#pages',pages).replace('#allp',_i.allp).replace('#pre',pre).replace('#next',next)+'</div>';
+							return '<div class="jfa-page">'+_dom.replace('#pages',pages).replace('#allp',_i.allp).replace('#pre',pre).replace('#next',next)+'</div>';
 						}).find('a.pg-num[p="'+_i.page+'"]').addClass('active');
 						_i.dom.find('a').click(function(){
 							_i.page = parseInt($(this).attr('p'));
@@ -141,11 +141,32 @@ define(['jquery','dom'],function($,Dom){
 				//普通点击
 				dom.find('[jfa-click="click"]').each(function(k,i){
 					var o = $(i),
-						k = o.attr('jfa-callback');
-					o.click(function(){
-						if(k=='sbtn') o.sval = o.parent().parent().find('input[type="text"]').val();
-						k && _obj.conf.callback[k] && _obj.conf.callback[k](o);
-					})
+						lk = o.attr('jfa-link'),
+						arg = o.attr('jfa-arg') || 'kwd',
+						k = o.attr('jfa-callback'),
+						get = function(){
+							k && _obj.conf.callback[k] && _obj.conf.callback[k](o);
+						}
+					;
+					if(k=='sbtn') {
+						var ipt = o.parent().parent().find('input[type="text"]'),
+							set = function(){
+								o.sval = ipt.val().trim();get();
+								if(lk&&o.sval) location.href = lk+'?'+arg+'='+o.sval;
+							};
+						o.click(function(){
+							set()
+						})
+						ipt.keypress(function(e) {
+							if (e.which == 13){
+								set()
+							}
+						})
+					}else{
+						o.click(function(){
+							get();
+						})
+					}
 				})
 				//增加或删除active
 				dom.find('[jfa-click="active"]').each(function(k,i){
@@ -178,15 +199,33 @@ define(['jquery','dom'],function($,Dom){
 						k && _obj.conf.callback[k] && _obj.conf.callback[k](ob);
 					})
 				})
+				//切换tab切换div
+				dom.find('[jfa-click="change-box"]').each(function(k,i){
+					var o = $(i),
+						s = o.attr('jfa-tar'),
+						to = o.attr('jfa-to'),
+						obj = o.find(s),
+						k = o.attr('jfa-callback')
+					;
+					obj.click(function(){
+						var ob = $(this),
+							ci = ob.attr('ci');
+						o.find('.active').removeClass('active');
+						ob.addClass('active');
+						$('.'+to+'.active').removeClass('active');
+						$('.'+to+'[ci="'+ci+'"]').addClass('active');
+						k && _obj.conf.callback[k] && _obj.conf.callback[k](ob);
+					})
+				})
 			},
-			jui : {
+			block : {
 				alert : function(){
-					$('body').append('<div class="jui-alert" id="jui-alert"></div>');
-					return $('#jui-alert');
+					$('body').append('<div class="jfa-alert" id="jfa-alert"></div>');
+					return $('#jfa-alert');
 				}(),
 				cover : function(){
-					$('body').append('<div class="jui-cover" id="jui-cover"></div>');
-					return $('#jui-cover');
+					$('body').append('<div class="jfa-cover" id="jfa-cover"></div>');
+					return $('#jfa-cover');
 				}()
 			},
 			tools : {
@@ -207,7 +246,7 @@ define(['jquery','dom'],function($,Dom){
 				},
 				alert : function(tp,msg){
 					var msg = msg || _obj.tools.alertDefault[tp].msg;
-					_obj.jui.alert.show().html(Dom.alert[tp].replace('#msg',msg)).css({top:'-'+_obj.jui.alert[0].clientHeight+'px'}).animate({top:_obj.tools.alertDefault[tp].top}).find('button').click(function(){
+					_obj.block.alert.show().html(Dom.alert[tp].replace('#msg',msg)).css({top:'-'+_obj.block.alert[0].clientHeight+'px'}).animate({top:_obj.tools.alertDefault[tp].top}).find('button').click(function(){
 						if(_obj.tools.alertDefault[tp].callback) _obj.tools.alertDefault[tp].callback();
 						else _obj.tools.alertLeave();
 					})
@@ -220,32 +259,32 @@ define(['jquery','dom'],function($,Dom){
 					'confirm' : {'msg':'确定要删除该行信息吗?',leave:-1,top:'0'},
 				},
 				alertLeave : function(){
-					_obj.jui.alert.animate({top:'-'+_obj.jui.alert[0].clientHeight+'px'},300,function(){
+					_obj.block.alert.animate({top:'-'+_obj.block.alert[0].clientHeight+'px'},300,function(){
 						$(this).empty().hide();
-						_obj.jui.cover.hide();
+						_obj.block.cover.hide();
 					})
 				},
 				login : function(suc,arg){
-					_obj.jui.cover.show();
-					_obj.jui.alert.show().html(Dom.alert.login).css({top:'-'+_obj.jui.alert[0].clientHeight+'px'}).animate({top:'10%'},function(){
+					_obj.block.cover.show();
+					_obj.block.alert.show().html(Dom.alert.login).css({top:'-'+_obj.block.alert[0].clientHeight+'px'}).animate({top:'10%'},function(){
 						$(this).find('input[name="username"]').focus();
 					});
-					_obj.jui.alert.find('input[name="password"]').keypress(function(event) {
+					_obj.block.alert.find('input[name="password"]').keypress(function(event) {
 						if (event.which == 13){
 							suc && suc();
 						}
 					});
-					_obj.jui.alert.find('a.checks').click(function(){
+					_obj.block.alert.find('a.checks').click(function(){
 						suc && suc();
 					})
-					_obj.jui.alert.find('a.closes').click(function(){
+					_obj.block.alert.find('a.closes').click(function(){
 						if(!arg) _obj.tools.alertLeave();
 					})
 				},
 				confirm : function(msg,suc){
-					_obj.jui.cover.show();
+					_obj.block.cover.show();
 					if(msg=='') msg = '确定要删除该信息吗?';
-					_obj.jui.alert.show().html(Dom.alert.confirm.replace('#msg',msg)).css({top:'-'+_obj.jui.alert[0].clientHeight+'px'}).animate({top:'0'}).find('button').click(function(){
+					_obj.block.alert.show().html(Dom.alert.confirm.replace('#msg',msg)).css({top:'-'+_obj.block.alert[0].clientHeight+'px'}).animate({top:'0'}).find('button').click(function(){
 						var txt = $(this).attr('rel');
 						_obj.tools.alertLeave();
 						if(txt=='callback') suc && suc();

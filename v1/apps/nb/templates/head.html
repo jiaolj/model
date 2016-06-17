@@ -1,5 +1,6 @@
+{% load staticfiles %}
 <header>
-	<a href="/" class="logo">行业资讯分析平台</a>
+	<a href="/" class="logo"><img src="{% static 'img/logo.jpg' %}"/></a>
 	<nav class="menu" jui-click="active" jui-tar="a" jui-callback="menu1">
 		{%for m in menuList%}<a href="{{m.href}}">{{m.name}}</a>{%endfor%}
 	</nav>

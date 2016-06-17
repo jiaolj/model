@@ -3,13 +3,35 @@
 {% load mytags  %}
 {%block css%}<link href="{% static 'css/analyze.css' %}" rel="stylesheet" />{%endblock%}
 {%block content%}
-<div class="analyze">
-	<div class="leftbox">
-		1
-	</div>
-	<div class="rightbox">
-		2
+<div class="analyze pcb">
+	{%include 'parts/search.html'%}
+	<div class="midbox">
+		<div class="outbox left">
+			<nav class="tit">
+				概念导航
+			</nav>
+			<div class="inbox">
+				
+			</div>
+		</div>
+		<div class="outbox right">
+			<nav class="tit" jfa-click="change-box" jfa-tar="a" jfa-to="jui-change1" jfa-callback="menu1">
+				<a class="active" ci="0">资讯列表</a><a ci="1">智能分析</a>
+			</nav>
+			<div class="inbox">
+				<div class="son jui-change1 jfa-box active" ci="0">
+					<div class="chart line" id="lineChart"></div>
+					<div class="chart map" id="mapChart"></div>
+				</div>
+				<div class="son jui-change1 jfa-box" ci="1">
+					
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 {%endblock%}
-{%block js%}<script src="{% static 'js/require.js' %}" defer async="true" data-main="{% static 'js/analyze' %}"></script>{%endblock%}
+{%block js%}
+<!--<script src="{% static 'js/require.js' %}" defer async="true" data-main="{% static 'js/analyze' %}"></script>-->
+<script defer async="true" src="{% static 'js/analyze.js' %}"></script>
+{%endblock%}

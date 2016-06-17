@@ -1,0 +1,27 @@
+@import 'model.less';
+
+//搜索
+.jfa-search(@w:600px,@h:40px) {
+	.w(@w);.mg(9px auto);
+	dt {
+		.ofh;
+		input {
+			.w;.fs(16px);
+		}
+	}
+	.jval {
+		.w(84%);
+		input {
+			.lh(@h - 2px);.h(@h - 2px);.ti;
+		}
+	}
+	.jbtn {
+		.w(16%);
+		input {
+			.bg(@color);.c(#fff);.lh(@h);.h(@h);
+			&:hover{
+				.bg(darken(@color,5%));
+			}
+		}
+	}
+}

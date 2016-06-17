@@ -9,5 +9,5 @@ logger = logging.getLogger('app')
 
 def home(req):
     logger.info('analyze '+getStrTime(1))
-    seoTitle = '行业资讯分析平台'
-    return render_to_response('analyze.html',locals(),context_instance=RequestContext(req))
+    seoTitle = '我的订阅'
+    return render_to_response('custom.html',locals(),context_instance=RequestContext(req))

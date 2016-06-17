@@ -1,0 +1,34 @@
+@import 'model.less';
+@import 'jfa.less';
+@import 'base.less';
+
+.home {
+	.logo {
+		.tct;
+	}
+	dl.search {
+		@sh:30px;
+		.w(350px);.mg(9px auto);
+		dt {
+			.ofh;
+			input {
+				.w;
+			}
+		}
+		.boxs {
+			.w(300px);
+			input {
+				.lh(@sh - 2px);.h(@sh - 2px);
+			}
+		}
+		.boxb {
+			.w(50px);
+			input {
+				.bg(@color);.c(#fff);.lh(@sh);.h(@sh);
+				&:hover{
+					.bg(darken(@color,5%));
+				}
+			}
+		}
+	}
+}

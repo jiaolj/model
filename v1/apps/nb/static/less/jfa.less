@@ -5,9 +5,9 @@ body,dl,p,table,h1,h2,h3,h4,h5,h6{margin:0}
 h1,h2,h3,h4,h5,h6{.fs}.hide{.dsn}
 body{.h;.w;.psr;.fs(12px);.ffmy('Microsoft YaHei','Lucida Grande',Arial,sans-serif;)}
 a{.tdn;.c(#4a62af);.csr}
-img {.val}
+img{.val;}
 input,textarea,select,summary{.otl}
-iframe,input,textarea{.bdn}
+img,iframe,input,textarea{.bdn}
 input[type="button"] {
 	.csr;
 }
@@ -17,35 +17,22 @@ table {
 }
 .cover {.psa;.w;.h} //覆盖层
 .close {.psa;.r(1px);.t(1px)} //关闭按钮
-dl.pflt {  //浮动并清除
-	dt {
-		.flt;
-	}
+.pcb {
 	&:after {
 		content :'';.cb;.dsb;
 	}
 }
-
-//jui-animate
-*[jui-animate="hover1"] {
-	b {
-		.psa;.hr(2.5rem);.tr(-12rem);.bg(#02BDCE);
+dl.pflt {  //浮动并清除
+	dt {
+		.flt;
 	}
+	.pcb;
 }
-.jui-box{
+//tab切换不同div
+.jfa-box{
 	.dsn;
 	&.active {
 		.dsb;
-	}
-}
-.jui-only-show {
-	.jui-show{
-		.dsn;
-	}
-	&.active {
-		.jui-show{
-			.dsb;
-		}
 	}
 }
 .button {
@@ -58,10 +45,10 @@ dl.pflt {  //浮动并清除
 }
 .button-green {.button-color(green)}
 .button-red {.button-color(red)}
-.jui-cover {
+.jfa-cover {
 	.w;.h;.psf;.bg(rgba(255,255,255,0.4));.zi(9);.dsn;
 }
-.jui-alert {
+.jfa-alert {
 	.psa;.pd(10px);.w(440px);.mgl(-210px);.br(3px);.bd;.l(50%);.zi(99);.bg(#F2F2F2);.fs(14px);.dsn;.bs-alert;
 	.confirm {
 		.alertInner {
@@ -113,7 +100,7 @@ dl.pflt {  //浮动并清除
 		}
 	}
 }
-.jui-page {
+.jfa-page {
 	a {
 		.pd(6px);.c(#999);
 		&.active {

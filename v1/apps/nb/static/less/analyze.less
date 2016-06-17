@@ -1,13 +1,45 @@
 @import 'model.less';
+@import 'jfa.less';
 @import 'base.less';
 
 .analyze {
-	.leftbox {
-		.flt;.w(68%);.pd(1%);
-		
+	@leftw:300px;.h;
+	@toph:60px;
+	@sh:32px;
+	dl.jsearch {
+		.jfa-search(700px,@sh);
 	}
-	.rightbox {
-		.frt;.w(28%);.pd(1%);
-		
+	.midbox {
+		.psa;.t(@sh + 12px);.b;.w;
+		.outbox {
+			.h;.psr;
+			&.left {
+				.flt;.w(300px);
+			}
+			&.right {
+				.mgl(@leftw + 30px);
+			}
+			nav.tit {
+				.fw;.fs(15px);.c(#666);.lh(@toph);
+				a {
+					.c(#666);.pd(6px 9px);
+					&.active {
+						.c(@color);.bdb(@color,3px);
+					}
+				}
+			}
+			.inbox {
+				.psa;.t(@toph);.b;.bg(#fff);.w;.ofa;
+				.son {
+					.h;
+					.chart {
+						.h(300px);
+						&.map {
+							.h(500px);
+						}
+					}
+				}
+			}
+		}
 	}
 }

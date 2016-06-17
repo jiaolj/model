@@ -1,4 +1,6 @@
 @import 'model.less';
+@import 'jfa.parts.less';
+
 @color:#8D48AB;
 @headh:60px;
 @footh:50px;
@@ -7,7 +9,7 @@ body {
 }
 
 header {
-	.bg(@color);.psa;.w;.h(@headh);.lh(@headh);
+	.bg(@color);.psa;.w;.h(@headh);.lh(@headh);.fs(16px);
 	a.logo{
 		.flt;.c(#fff);.mgl(20px);.mgr(40px);
 	}
@@ -47,8 +49,7 @@ footer {
 	.mgt(9px);.trt;
 }
 section {
-	.psa;.t(@headh + 9px);.b(@footh + 9px);.w;
-	@mainh:460px;
+	.psa;.t(@headh + 9px);.b(@footh + 9px);.w(96%);.mgl(2%);
 	img.bg{
 		.w;.h;.psa;.l;.zi(-1);
 	}
