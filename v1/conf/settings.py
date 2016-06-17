@@ -52,11 +52,13 @@ TEMPLATE_DIRS = (
 HTTP = {
     'default' : {
         'HOST': 'http://192.168.1.251',
-        'path': '/spider_admin/user/register',
+        'PORT': '',
+        'PATH': '/spider_admin/user/register',
     },
     'test' : {
         'HOST': 'localhost:808',
-        'path': '/spider_admin/user/register',
+        'PORT': '',
+        'PATH': '/spider_admin/user/register',
     }
 }
 DATABASES = {
