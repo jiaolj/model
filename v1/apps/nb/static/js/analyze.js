@@ -76,8 +76,10 @@ require(['jquery','base','jfa','drawe','echarts','echarts/test','echarts/chart/l
 				Jfa.init({
 					size:(100/1920),
 					callback : {
-						menu1 : function(o){
-							log(o.text());
+						menu1 : function(o,ci){
+							if(ci=='1'){
+								Dr.getLine('lineChart').getMap('mapChart',[{name:'中国',value:100},{name:'美国',value:80}]);
+							};
 						},
 					}
 				});
@@ -86,7 +88,6 @@ require(['jquery','base','jfa','drawe','echarts','echarts/test','echarts/chart/l
 						_obj.getLogin();
 					}
 				});
-				Dr.getLine('lineChart').getMap('mapChart',[{name:'中国',value:100},{name:'美国',value:80}]);
 				_obj.getTree();
 			}
 		}

@@ -221,7 +221,7 @@ define(['jquery','dom'],function($,Dom){
 						ob.addClass('active');
 						$('.'+to+'.active').removeClass('active');
 						$('.'+to+'[ci="'+ci+'"]').addClass('active');
-						k && _obj.conf.callback[k] && _obj.conf.callback[k](ob);
+						k && _obj.conf.callback[k] && _obj.conf.callback[k](ob,ci);
 					})
 				})
 			},
